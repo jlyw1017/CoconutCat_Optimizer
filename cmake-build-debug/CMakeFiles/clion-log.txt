@@ -1,0 +1,5 @@
+/home/jlyw/clion-2019.1.2/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/jlyw/CoconutCat_Optimizer
+CUDA found
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/jlyw/CoconutCat_Optimizer/cmake-build-debug

@@ -1,0 +1,59 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/jlyw/CoconutCat_Optimizer/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_8306d/fast 
+make[1]: 进入目录“/home/jlyw/CoconutCat_Optimizer/cmake-build-debug/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_8306d.dir/build.make CMakeFiles/cmTC_8306d.dir/build
+make[2]: 进入目录“/home/jlyw/CoconutCat_Optimizer/cmake-build-debug/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_8306d.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -fPIC    -o CMakeFiles/cmTC_8306d.dir/CheckSymbolExists.c.o   -c /home/jlyw/CoconutCat_Optimizer/cmake-build-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_8306d
+/home/jlyw/clion-2019.1.2/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8306d.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC     CMakeFiles/cmTC_8306d.dir/CheckSymbolExists.c.o  -o cmTC_8306d 
+CMakeFiles/cmTC_8306d.dir/CheckSymbolExists.c.o：在函数‘main’中：
+CheckSymbolExists.c:(.text+0x1b)：对‘pthread_create’未定义的引用
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_8306d.dir/build.make:86: recipe for target 'cmTC_8306d' failed
+make[2]: *** [cmTC_8306d] Error 1
+make[2]: 离开目录“/home/jlyw/CoconutCat_Optimizer/cmake-build-debug/CMakeFiles/CMakeTmp”
+Makefile:121: recipe for target 'cmTC_8306d/fast' failed
+make[1]: *** [cmTC_8306d/fast] Error 2
+make[1]: 离开目录“/home/jlyw/CoconutCat_Optimizer/cmake-build-debug/CMakeFiles/CMakeTmp”
+
+File /home/jlyw/CoconutCat_Optimizer/cmake-build-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/jlyw/CoconutCat_Optimizer/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_aaa7e/fast 
+make[1]: 进入目录“/home/jlyw/CoconutCat_Optimizer/cmake-build-debug/CMakeFiles/CMakeTmp”
+/usr/bin/make -f CMakeFiles/cmTC_aaa7e.dir/build.make CMakeFiles/cmTC_aaa7e.dir/build
+make[2]: 进入目录“/home/jlyw/CoconutCat_Optimizer/cmake-build-debug/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_aaa7e.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_aaa7e.dir/CheckFunctionExists.c.o   -c /home/jlyw/clion-2019.1.2/bin/cmake/linux/share/cmake-3.14/Modules/CheckFunctionExists.c
+Linking C executable cmTC_aaa7e
+/home/jlyw/clion-2019.1.2/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_aaa7e.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_aaa7e.dir/CheckFunctionExists.c.o  -o cmTC_aaa7e -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_aaa7e.dir/build.make:86: recipe for target 'cmTC_aaa7e' failed
+make[2]: *** [cmTC_aaa7e] Error 1
+make[2]: 离开目录“/home/jlyw/CoconutCat_Optimizer/cmake-build-debug/CMakeFiles/CMakeTmp”
+Makefile:121: recipe for target 'cmTC_aaa7e/fast' failed
+make[1]: *** [cmTC_aaa7e/fast] Error 2
+make[1]: 离开目录“/home/jlyw/CoconutCat_Optimizer/cmake-build-debug/CMakeFiles/CMakeTmp”
+
+
