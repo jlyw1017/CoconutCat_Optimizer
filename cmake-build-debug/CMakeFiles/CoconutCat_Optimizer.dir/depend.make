@@ -3,6 +3,9 @@
 
 CMakeFiles/CoconutCat_Optimizer.dir/main.cpp.o: ../linearSolver_SparseCholesky.h
 CMakeFiles/CoconutCat_Optimizer.dir/main.cpp.o: ../main.cpp
+CMakeFiles/CoconutCat_Optimizer.dir/main.cpp.o: ../settings.h
+CMakeFiles/CoconutCat_Optimizer.dir/main.cpp.o: ../simple_optimizer_Leveberg_Marquardt.h
+CMakeFiles/CoconutCat_Optimizer.dir/main.cpp.o: ../utilis.h
 CMakeFiles/CoconutCat_Optimizer.dir/main.cpp.o: /usr/include/eigen3/Eigen/Cholesky
 CMakeFiles/CoconutCat_Optimizer.dir/main.cpp.o: /usr/include/eigen3/Eigen/Core
 CMakeFiles/CoconutCat_Optimizer.dir/main.cpp.o: /usr/include/eigen3/Eigen/Dense

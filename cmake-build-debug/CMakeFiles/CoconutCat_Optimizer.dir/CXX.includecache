@@ -31,8 +31,22 @@ Eigen/Sparse
 -
 opencv2/opencv.hpp
 -
+settings.h
+/home/jlyw/CoconutCat_Optimizer/settings.h
 linearSolver_SparseCholesky.h
 /home/jlyw/CoconutCat_Optimizer/linearSolver_SparseCholesky.h
+simple_optimizer_Leveberg_Marquardt.h
+/home/jlyw/CoconutCat_Optimizer/simple_optimizer_Leveberg_Marquardt.h
+utilis.h
+/home/jlyw/CoconutCat_Optimizer/utilis.h
+
+/home/jlyw/CoconutCat_Optimizer/settings.h
+
+/home/jlyw/CoconutCat_Optimizer/simple_optimizer_Leveberg_Marquardt.h
+
+/home/jlyw/CoconutCat_Optimizer/utilis.h
+random
+-
 
 /usr/include/eigen3/Eigen/Cholesky
 Core
