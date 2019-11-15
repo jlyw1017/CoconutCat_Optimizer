@@ -12,7 +12,7 @@ protected:
 
     // LM Parameters
     double Damping_Factor = 0;
-    double Damping_Factor_InitialFactor = 0.0001;
+    double Damping_Factor_InitialFactor = 1e-5;
     double AP_Reduction_Ratio;     //Actual_Predicted_Reduction_Ratio
 
     // Trust Region Parameters
@@ -22,7 +22,9 @@ protected:
 
     // Variables
     int current_Step = 0;
+    Eigen::MatrixXd JD_, HD_;
     Eigen::SparseMatrix<double,Eigen::RowMajor> H_,J_;
+    //Eigen::SparseMatrix<double,Eigen::RowMajor> Information;
     Eigen::VectorXd variables_,p,r,g;  // x_ is your optimization target variables
     Eigen::VectorXd input_TF;  // Input of your Target Function
     Eigen::VectorXd observations;
@@ -36,7 +38,7 @@ public:
     virtual void updateResidual() = 0;
     virtual double computeResidual(double x,double y) = 0;
     virtual void setTargetFunction(double (*target_func_)(Eigen::VectorXd,Eigen::VectorXd,Eigen::VectorXd)) = 0;
-    void run_optimize() {
+    void run_optimize(){
         std::cout << "Optimize Run"  << std::endl;
         bool OpCondition = Levenberg_maarquardt();
         std::cout << "Optimize Process Finised? " << std::endl << OpCondition << std::endl;
@@ -53,13 +55,25 @@ public:
         updateJacobian();
         updateResidual();
         H_ = J_.transpose()*J_;
-        std::cout << "J_:"  << std::endl << J_;
+        //std::cout << "J_:"  << std::endl << J_;
+        //std::cout << "H_:"  << std::endl << H_;
+
+        /*
+         * // Dense version
+        HD_ = JD_.transpose()*JD_;
+        std::cout << "JD_:"  << std::endl << JD_;
+        std::cout << "HD_:"  << std::endl << HD_;
+*/
         Damping_Factor = Damping_Factor_InitialFactor*initialLambda(H_);
-        std::cout << "Damping_Factor:"  << std::endl << Damping_Factor;
+        //std::cout << "Damping_Factor:"  << std::endl << Damping_Factor << std::endl;
         g = -J_.transpose()*r;
-        std::cout << "g:"  << std::endl << g;
+        //std::cout << "g:"  << std::endl << g;
         while(not foundFLAG && current_Step < Max_Steps){
+            std::cout << std::endl << "Iteration:" << current_Step << std::endl;
             p = linear_solver(H_,Damping_Factor,g);
+            std::cout << "x:" << variables_ <<std::endl;
+            //std::cout << "P:" << p <<std::endl;
+
             foundFLAG = stop_condition();
             if(foundFLAG){
                 foundFLAG = (p.norm() < error_b*((target_func_)(variables_,input_TF,observations)-error_b));
@@ -69,7 +83,6 @@ public:
                         /(p.transpose()*(Damping_Factor*p+g));
                 variables_ += p;
                 if(AP_Reduction_Ratio>0){
-                    std::cout << "here" << std::endl;
                     updateJacobian();
                     updateResidual();
                     H_ = J_.transpose()*J_;
@@ -79,10 +92,10 @@ public:
                     v = 2;
                 }
                 else{
-                    std::cout << "there" << std::endl;
                     Damping_Factor = Damping_Factor*v;
                     v = 2*v;
                 }
+
                 ++current_Step;
             }
         }
@@ -96,12 +109,10 @@ public:
         //std::cout << "Line Solver Begin"   << std::endl;
         int size = H_.rows();
         Eigen::VectorXd x(b.size());
-        std::cout << "namuda"   << namuda << std::endl;
-
         Eigen::SparseMatrix<double,Eigen::RowMajor> A = H_ + namuda*Eigen::MatrixXd::Identity(size,size);
 
         if(LINEAR_SOLVER_TYPE == 0){
-            std::cout << "Eigen Solve"   << std::endl;
+            //std::cout << "Eigen Solve"   << std::endl;
             Eigen::SimplicialCholesky<Eigen::SparseMatrix<double>> chol(A);  // performs a Cholesky factorization of A
             //std::cout << "Cholesky Finished" << chol.solve(b) << std::endl;
             x = chol.solve(b);
@@ -110,6 +121,7 @@ public:
             //std::cout << "Cuda Solve"   << std::endl;
             x = cuda_Solver(A,b);
         }
+
         return x;
     }
 

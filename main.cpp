@@ -12,10 +12,11 @@
 
 int main() {
     std::cout << "CoconutCat is CUTE!" << std::endl;
-    //Linear_Solver_test();
+//    Linear_Solver_test();
     //std::cout << "Line Solver Finished!" << std::endl;
     Simple_Optimizer_test();
     std::cout << "Optimizer Finished!" << std::endl;
+
     std::cout << "CoconutCat Optimization Finished!" << std::endl;
     return 0;
 }

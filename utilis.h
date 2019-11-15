@@ -98,6 +98,7 @@ public:
         double exp_y = std::exp(variables_(0)*x*x + variables_(1)*x + variables_(2));
         Eigen::Matrix<double, 1, 3> jaco_abc;  // 误差为1维，状态量 3 个，所以是 1x3 的雅克比矩阵
         jaco_abc << exp_y*x * x , exp_y*x  , exp_y;
+        //std::cout << "x" << x << "jaco_abc" << jaco_abc << std::endl;
         return jaco_abc;
     }
 
@@ -110,10 +111,10 @@ public:
             vecJ.push_back(temp(0,2));
         }
         Eigen::MatrixXd Jtemp;
-        Jtemp = Eigen::MatrixXd::Map(&vecJ[0], observations.size(), 3);
-        std::cout << "J_:"  << std::endl << J_;
-        //JD_ = Jtemp;
-        J_ = Jtemp.sparseView(1, 0.0001);
+        Jtemp = Eigen::MatrixXd::Map(&vecJ[0], 3, observations.size());
+        //std::cout << "J_:"  << std::endl << J_;
+        JD_ = Jtemp.transpose();
+        J_ = Jtemp.transpose().sparseView(1, 0.0001);
     };
 
     virtual void setTargetFunction(double (*target_func)(Eigen::VectorXd,Eigen::VectorXd,Eigen::VectorXd)) override {
@@ -132,23 +133,23 @@ double expCurve(Eigen::VectorXd parameters,Eigen::VectorXd x,Eigen::VectorXd z){
 void Simple_Optimizer_test(){
     std::cout << "Optimizer Begein!" << std::endl;
     double a=1.0, b=2.0, c=1.0;         // line fitting for exp( a*x*x + b*x + c )  我们以这个模型作为测试对象
-    int N = 4;                       // Number of Datapoints   数据点数量
-    double w_sigma= 0.1;                 // Noise Sigma  高斯分布方差
+    int N = 1000;                       // Number of Datapoints   数据点数量
+    double w_sigma= 1;                 // Noise Sigma  高斯分布方差
 
     std::default_random_engine generator;
     std::normal_distribution<double> noise(0.,w_sigma);
 
     Eigen::VectorXd variablesInit(3);
-    variablesInit << 1.1,2.1,1.1;
+    variablesInit << 2,4,2;
 
     std::vector<double> sin;
     std::vector<double> sz;
     for(int i = 0; i < N; ++i) {
-        double x = i/100.;
+        double x = i/1000.;
         double n = noise(generator);
         // Oberservation 观测 y
         //double y = a*x*x + b*x + c  + n;
-        double y = a*x*x + b*x + c + n; //std::exp(
+        double y = std::exp(a*x*x + b*x + c) + n; //
         sin.push_back(x);
         sz.push_back(y);
     }
@@ -162,8 +163,6 @@ void Simple_Optimizer_test(){
     CurveOp->setTargetFunction(&expCurve);
     //std::cout << "Optimizer Initialized!" << std::endl;
     CurveOp->addFactor(inputx,z);
-
-    std::cout<<"\nTest CurveFitting start..."<<std::endl;
     /// 使用 LM 求解
     CurveOp->run_optimize();
 
