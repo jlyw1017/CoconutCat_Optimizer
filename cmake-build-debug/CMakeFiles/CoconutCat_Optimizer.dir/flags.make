@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=gnu++14
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/usr/include/eigen3 -I/usr/local/cuda/include -isystem /usr/include/opencv 
+CXX_INCLUDES = -I/usr/include/eigen3 -I/usr/local/cuda/include -I/home/jlyw/CoconutCat_Optimizer -I/home/jlyw/CoconutCat_Optimizer/source -isystem /usr/include/opencv 
 

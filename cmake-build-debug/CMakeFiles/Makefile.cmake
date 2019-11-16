@@ -11,6 +11,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.14.2/CMakeCCompiler.cmake"
   "CMakeFiles/3.14.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.14.2/CMakeSystem.cmake"
+  "../source/CMakeLists.txt"
   "/home/jlyw/clion-2019.1.2/bin/cmake/linux/share/cmake-3.14/Modules/CMakeCInformation.cmake"
   "/home/jlyw/clion-2019.1.2/bin/cmake/linux/share/cmake-3.14/Modules/CMakeCXXInformation.cmake"
   "/home/jlyw/clion-2019.1.2/bin/cmake/linux/share/cmake-3.14/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake"
@@ -63,9 +64,11 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
+  "source/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/CoconutCat_Optimizer.dir/DependInfo.cmake"
+  "source/CMakeFiles/Coconut_Cat_Libs.dir/DependInfo.cmake"
   )

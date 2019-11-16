@@ -1,0 +1,2 @@
+/usr/bin/ar qc libCoconut_Cat_Libs.a  CMakeFiles/Coconut_Cat_Libs.dir/linearSolver_SparseCholesky.cpp.o CMakeFiles/Coconut_Cat_Libs.dir/simple_optimizer_Leveberg_Marquardt.cpp.o
+/usr/bin/ranlib libCoconut_Cat_Libs.a

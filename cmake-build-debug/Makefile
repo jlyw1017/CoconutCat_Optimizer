@@ -123,6 +123,19 @@ CoconutCat_Optimizer/fast:
 	$(MAKE) -f CMakeFiles/CoconutCat_Optimizer.dir/build.make CMakeFiles/CoconutCat_Optimizer.dir/build
 .PHONY : CoconutCat_Optimizer/fast
 
+#=============================================================================
+# Target rules for targets named Coconut_Cat_Libs
+
+# Build rule for target.
+Coconut_Cat_Libs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Coconut_Cat_Libs
+.PHONY : Coconut_Cat_Libs
+
+# fast build rule for target.
+Coconut_Cat_Libs/fast:
+	$(MAKE) -f source/CMakeFiles/Coconut_Cat_Libs.dir/build.make source/CMakeFiles/Coconut_Cat_Libs.dir/build
+.PHONY : Coconut_Cat_Libs/fast
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -159,6 +172,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... CoconutCat_Optimizer"
 	@echo "... edit_cache"
+	@echo "... Coconut_Cat_Libs"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

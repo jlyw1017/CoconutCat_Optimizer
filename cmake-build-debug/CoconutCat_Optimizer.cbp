@@ -5,7 +5,7 @@
 		<Option title="CoconutCat_Optimizer"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\usr\;CMake Files\..\..\..\usr\share\;CMake Files\..\..\..\usr\share\OpenCV\;CMake Files\..\..\..\usr\lib\;CMake Files\..\..\..\usr\lib\cmake\;CMake Files\..\..\..\usr\lib\cmake\eigen3\;CMake Files\..\..\..\usr\local\;CMake Files\..\..\..\usr\local\share\;CMake Files\..\..\..\usr\local\share\sophus\;CMake Files\..\..\..\usr\local\share\sophus\cmake\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\usr\;CMake Files\..\..\..\usr\share\;CMake Files\..\..\..\usr\share\OpenCV\;CMake Files\..\..\..\usr\lib\;CMake Files\..\..\..\usr\lib\cmake\;CMake Files\..\..\..\usr\lib\cmake\eigen3\;CMake Files\..\..\..\usr\local\;CMake Files\..\..\..\usr\local\share\;CMake Files\..\..\..\usr\local\share\sophus\;CMake Files\..\..\..\usr\local\share\sophus\cmake\;CMake Files\source\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/jlyw/CoconutCat_Optimizer/cmake-build-debug"/>
@@ -36,6 +36,8 @@
 				<Compiler>
 					<Add directory="/usr/include/eigen3"/>
 					<Add directory="/usr/local/cuda/include"/>
+					<Add directory="/home/jlyw/CoconutCat_Optimizer"/>
+					<Add directory="/home/jlyw/CoconutCat_Optimizer/source"/>
 					<Add directory="/usr/include/opencv"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
@@ -62,6 +64,8 @@
 				<Compiler>
 					<Add directory="/usr/include/eigen3"/>
 					<Add directory="/usr/local/cuda/include"/>
+					<Add directory="/home/jlyw/CoconutCat_Optimizer"/>
+					<Add directory="/home/jlyw/CoconutCat_Optimizer/source"/>
 					<Add directory="/usr/include/opencv"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
@@ -89,9 +93,74 @@
 					<DistClean command="/usr/bin/make -j12 -f &quot;/home/jlyw/CoconutCat_Optimizer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="Coconut_Cat_Libs">
+				<Option output="/home/jlyw/CoconutCat_Optimizer/cmake-build-debug/source/libCoconut_Cat_Libs.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/jlyw/CoconutCat_Optimizer/cmake-build-debug/source"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/opencv"/>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/usr/local/cuda/include"/>
+					<Add directory="/home/jlyw/CoconutCat_Optimizer"/>
+					<Add directory="/home/jlyw/CoconutCat_Optimizer/source"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/jlyw/CoconutCat_Optimizer/cmake-build-debug/source/Makefile&quot;  VERBOSE=1 Coconut_Cat_Libs"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/jlyw/CoconutCat_Optimizer/cmake-build-debug/source/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/jlyw/CoconutCat_Optimizer/cmake-build-debug/source/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/jlyw/CoconutCat_Optimizer/cmake-build-debug/source/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Coconut_Cat_Libs/fast">
+				<Option output="/home/jlyw/CoconutCat_Optimizer/cmake-build-debug/source/libCoconut_Cat_Libs.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/jlyw/CoconutCat_Optimizer/cmake-build-debug/source"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/opencv"/>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/usr/local/cuda/include"/>
+					<Add directory="/home/jlyw/CoconutCat_Optimizer"/>
+					<Add directory="/home/jlyw/CoconutCat_Optimizer/source"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/jlyw/CoconutCat_Optimizer/cmake-build-debug/source/Makefile&quot;  VERBOSE=1 Coconut_Cat_Libs/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/jlyw/CoconutCat_Optimizer/cmake-build-debug/source/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/jlyw/CoconutCat_Optimizer/cmake-build-debug/source/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/jlyw/CoconutCat_Optimizer/cmake-build-debug/source/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 		</Build>
 		<Unit filename="/home/jlyw/CoconutCat_Optimizer/main.cpp">
 			<Option target="CoconutCat_Optimizer"/>
+		</Unit>
+		<Unit filename="/home/jlyw/CoconutCat_Optimizer/source/linearSolver_SparseCholesky.cpp">
+			<Option target="Coconut_Cat_Libs"/>
+		</Unit>
+		<Unit filename="/home/jlyw/CoconutCat_Optimizer/source/linearSolver_SparseCholesky.h">
+			<Option target="Coconut_Cat_Libs"/>
+		</Unit>
+		<Unit filename="/home/jlyw/CoconutCat_Optimizer/source/simple_optimizer_Leveberg_Marquardt.cpp">
+			<Option target="Coconut_Cat_Libs"/>
 		</Unit>
 		<Unit filename="/home/jlyw/CoconutCat_Optimizer/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
@@ -125,6 +194,9 @@
 		</Unit>
 		<Unit filename="/home/jlyw/CoconutCat_Optimizer/../../../usr/local/share/sophus/cmake/SophusTargets.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\usr\local\share\sophus\cmake\"/>
+		</Unit>
+		<Unit filename="/home/jlyw/CoconutCat_Optimizer/source/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\source\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>
